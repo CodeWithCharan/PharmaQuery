@@ -102,15 +102,19 @@ def main():
     st.set_page_config(page_title="PharmaQuery", page_icon=":microscope:")
     st.header("Pharmaceutical Insight Retrieval System")
 
-    query = st.text_input(
+    query = st.text_area(
         ":bulb: Enter your query about the Pharmaceutical Industry:",
         placeholder="e.g., What are the AI applications in drug discovery?"
     )
 
     if st.button("Submit"):
-        with st.spinner("Thinking..."):
-            result = run_rag_chain(query=query)
-            st.write(result)
+        if not query:
+            st.warning("Please ask a question")
+        
+        else:
+            with st.spinner("Thinking..."):
+                result = run_rag_chain(query=query)
+                st.write(result)
 
     with st.sidebar:
         st.title("Upload your research documents (Optional) :memo:")
@@ -120,9 +124,16 @@ def main():
         )
         
         if st.button("Submit & Process"):
-            with st.spinner("Processing your documents..."):
-                add_to_db(pdf_docs)
-                st.success(":file_folder: Documents successfully added to the database!")
+            if not pdf_docs:
+                st.warning("Please upload the file")
 
+            else:
+                with st.spinner("Processing your documents..."):
+                    add_to_db(pdf_docs)
+                    st.success(":file_folder: Documents successfully added to the database!")
+
+    # Sidebar Footer
+    st.sidebar.write("Built with ❤️ by [Charan](https://www.linkedin.com/in/codewithcharan/)")
+             
 if __name__ == "__main__":
     main()
