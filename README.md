@@ -7,7 +7,7 @@ PharmaQuery is an advanced Pharmaceutical Insight Retrieval System designed to h
 ![PharmaQuery Architecture](./Images/PharmaQuery-Architecture.png)
 
 ## Demo
-https://github.com/user-attachments/assets/7e90a2a5-2c63-4232-a0fe-2488c1abf526
+https://github.com/user-attachments/assets/c12ee305-86fe-4f71-9219-57c7f438f291
 
 ## Features
 - **Natural Language Querying**: Ask complex questions about the pharmaceutical industry and get concise, accurate answers.
